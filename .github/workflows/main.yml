@@ -1,12 +1,18 @@
 name: Vprofile CI/CD Workflow
 on: 
-  #push:
-#    branches:
-  #      - main
+  push:
+    branches:
+      - main
+
   pull_request:
-   branches:
-     - main
-  
+    branches:
+      - main
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: '10 14 * * 1-5'  # At 14:10 on every day-of-week from Monday through Friday.
+
 jobs:
   Build:
    runs-on: ubuntu-latest
