@@ -57,3 +57,30 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: echo "Skipping tests on main branch"
 
+  Security-Scan:
+   needs: Build
+   runs-on: ubuntu-latest
+   steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Run Security Scan
+      uses: aquasecurity/trivy-action@v0.28.0
+      with:
+        scan-type: 'fs'
+        scan-ref: .
+        format: json
+        exit-code: 
+        vuln-type: 'os,library'
+        output: 'trivy-report.json'
+
+    - name: Upload Trivy Scan results as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: trivy-scan-results
+        path: trivy-report.json
+    
+
+
