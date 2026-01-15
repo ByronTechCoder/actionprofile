@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../vprofile-project-docker/ansible"
+		},
+		{
+			"path": "../../../vprofile-project-docker/Docker-files"
+		},
+		{
+			"path": "../../../vprofile-project-docker/src"
+		},
+		{
+			"path": "../../../vprofile-project-docker/vagrant"
+		}
+	],
+	"settings": {}
+}
